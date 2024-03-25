@@ -72,6 +72,14 @@
     }
 
     async function getUserProfile() {
+      const profile = await liff.getProfile()
+        document.getElementById("pictureUrl").src = profile.pictureUrl
+        document.getElementById("userId").append(profile.userId)
+        document.getElementById("statusMessage").append(profile.statusMessage)
+        document.getElementById("displayName").append(profile.displayName)
+        document.getElementById("getDecodeIDToken").append(liff.getDecodeIDToken().email)
+
+      
     }
 
     function getEnvironment() {
@@ -93,7 +101,7 @@
       alert("Electronics Extreme")
       await liff.init({ liffId: "2004304815-54X0GejB" })
       getEnvironment()
-      // getUserProfile()
+      getUserProfile()
       // getContext()
       // getFriendship()
       // createUniversalLink()
